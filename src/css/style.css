@@ -107,6 +107,7 @@ body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  flex-direction: row;
   padding: 24px;
   width: 100%;
 }
