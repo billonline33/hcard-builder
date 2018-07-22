@@ -3,6 +3,7 @@ import React, { Component } from "react";
 class HCardPreview extends Component {
   render() {
     const formValue = this.props.formValue;
+    console.log("hcardform.formValue=", formValue);
     return (
       <div className="hCard_preview">
         <div className="hCard_preview-title">
@@ -19,7 +20,7 @@ class HCardPreview extends Component {
             </div>
             <div className="hCard_preview__userdata">
               <h3>Phone</h3>
-              <p>{formValue.givenName}</p>
+              <p>{formValue.surname}</p>
             </div>
             <div className="hCard_preview__userdata">
               <h3>Address</h3>

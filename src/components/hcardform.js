@@ -20,24 +20,20 @@ class HCardForm extends Component {
   }
 
   /* whenever an input box is changed, update the state value, note we use [name] for all input here  */
-
   handleFormInputChange(event) {
-    /*
     const target = event.target;
     const value = target.value;
     const name = target.name;
 
-    console.log("name=", name);
-    console.log("value", value);
-
-    this.setState({
-      [name]: value
-    });
-
-    */
-    this.props.onFormFieldChange(
-      event
-    ); /* when call the callback function, make sure pass event parameter */
+    this.setState(
+      {
+        [name]: value
+      },
+      /* use callback function, only call this funciton after setState is completed */
+      function() {
+        this.props.onFormFieldChange(this.state);
+      }
+    );
   }
 
   render() {
@@ -55,9 +51,7 @@ class HCardForm extends Component {
               name="givenName"
               value={formValue.givenName}
               placeholder="Given Name"
-              onChange={
-                this.props.onFormFieldChange
-              } /* can call this.props (passed from parent component) directly for callback */
+              onChange={this.handleFormInputChange}
             />
           </div>
           <div className="hCard_form-input">
@@ -65,10 +59,9 @@ class HCardForm extends Component {
             <input
               type="text"
               name="surname"
+              value={formValue.surname}
               placeholder="Surname"
-              onChange={
-                this.handleFormInputChange
-              } /* can also call the eventhandler in the same component */
+              onChange={this.handleFormInputChange}
             />
           </div>
           <div className="hCard_form-input">
@@ -76,13 +69,20 @@ class HCardForm extends Component {
             <input
               type="email"
               name="email"
+              value={formValue.email}
               placeholder="Email"
               onChange={this.handleFormInputChange}
             />
           </div>
           <div className="hCard_form-input">
             <label for="">Phone</label>
-            <input type="text" name="phone" placeholder="Phone" />
+            <input
+              type="text"
+              name="phone"
+              value={formValue.phone}
+              placeholder="Phone"
+              onChange={this.handleFormInputChange}
+            />
           </div>
 
           <h4>address</h4>
@@ -91,28 +91,60 @@ class HCardForm extends Component {
             <input
               type="text"
               name="houseNumber"
+              value={formValue.houseNumber}
               placeholder="House name or #"
+              onChange={this.handleFormInputChange}
             />
           </div>
           <div className="hCard_form-input">
             <label for="">Street</label>
-            <input type="text" name="street" placeholder="Street" />
+            <input
+              type="text"
+              name="street"
+              value={formValue.street}
+              placeholder="Street"
+              onChange={this.handleFormInputChange}
+            />
           </div>
           <div className="hCard_form-input">
             <label for="">Suburb</label>
-            <input type="text" name="suburb" placeholder="Suburb" />
+            <input
+              type="text"
+              name="suburb"
+              value={formValue.suburb}
+              placeholder="Suburb"
+              onChange={this.handleFormInputChange}
+            />
           </div>
           <div className="hCard_form-input">
             <label for="">State</label>
-            <input type="text" name="state" placeholder="State" />
+            <input
+              type="text"
+              name="state"
+              value={formValue.state}
+              placeholder="State"
+              onChange={this.handleFormInputChange}
+            />
           </div>
           <div className="hCard_form-input">
             <label for="">Postcode</label>
-            <input type="text" name="postcode" placeholder="Postcode" />
+            <input
+              type="text"
+              name="postcode"
+              value={formValue.postcode}
+              placeholder="Postcode"
+              onChange={this.handleFormInputChange}
+            />
           </div>
           <div className="hCard_form-input">
             <label for="">Country</label>
-            <input type="text" name="country" placeholder="Country" />
+            <input
+              type="text"
+              name="country"
+              value={formValue.country}
+              placeholder="Country"
+              onChange={this.handleFormInputChange}
+            />
           </div>
           <input
             className="button-upload"
