@@ -3,19 +3,7 @@ import React, { Component } from "react";
 class HCardForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      givenName: "",
-      surname: "",
-      email: "",
-      phone: "",
-      houseNumber: "",
-      street: "",
-      suburb: "",
-      state: "",
-      postcode: "",
-      country: ""
-    };
-
+    this.state = this.props.formValue;
     this.handleFormInputChange = this.handleFormInputChange.bind(this);
   }
 
