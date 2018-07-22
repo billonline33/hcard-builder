@@ -19,25 +19,45 @@ Below is the Folder Structure
 
 
 hcard-builder/
+
   README.md
+  
   node_modules/
+  
   package.json
+  
   public/
+  
     index.html
+    
     favicon.ico
+    
   src/
+  
     App.css
+    
     App.js
+    
     App.test.js
+    
     index.css
+    
     index.js
+    
     logo.svg
+    
     css/
+    
       style.css
+      
     components/
+    
       hcardform.js
+      
       hcardpreview.js
+      
       inputFileReader.js
+      
       
     
     To run the app, going to the project folder
