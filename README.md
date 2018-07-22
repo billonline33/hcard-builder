@@ -12,55 +12,10 @@ This applciation is built in react.
 * When the user selects an image, a thumbnail is shown in the preview
 * The app is responsive for different screen widths
 
-
-This application is created using create-react-app.
-
-Below is the Folder Structure
+You can run the app from https://react-hcard-builder.herokuapp.com/ 
 
 
-hcard-builder/
-
-  README.md
-  
-  node_modules/
-  
-  package.json
-  
-  public/
-  
-    index.html
-    
-    favicon.ico
-    
-  src/
-  
-    App.css
-    
-    App.js
-    
-    App.test.js
-    
-    index.css
-    
-    index.js
-    
-    logo.svg
-    
-    css/
-    
-      style.css
-      
-    components/
-    
-      hcardform.js
-      
-      hcardpreview.js
-      
-      inputFileReader.js
-      
-      
-    
-    To run the app, going to the project folder
+To run the app from your local computer, going to the project folder
     
     1. npm install
     
@@ -70,6 +25,57 @@ hcard-builder/
     
        This will run the app in the development mode.
        Open http://localhost:3000 to view it in the browser.
+   
+
+
+This application is created using create-react-app.
+
+Below is the Folder Structure
+
+
+hcard-builder/
+
+      README.md
+
+      node_modules/
+
+      package.json
+
+      public/
+
+        index.html
+
+        favicon.ico
+
+      src/
+
+        App.css
+
+        App.js
+
+        App.test.js
+
+        index.css
+
+        index.js
+
+        logo.svg
+
+        css/
+
+          style.css
+
+        components/
+
+          hcardform.js
+
+          hcardpreview.js
+
+          inputFileReader.js
+
+      
+    
+
    
     
       
