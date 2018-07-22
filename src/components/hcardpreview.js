@@ -47,11 +47,7 @@ class HCardPreview extends Component {
               </div>
             </div>
           </div>
-          <img
-            src="https://picsum.photos/85/105/?random"
-            alt="https://picsum.photos/200/300/?random"
-            className="hCard_preview-user"
-          />
+          <img src={formValue.avatar} alt="" className="hCard_preview-user" />
         </div>
       </div>
     );

@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import InputFileReader from "./inputFileReader";
 
 class HCardForm extends Component {
   constructor(props) {
     super(props);
     this.state = this.props.formValue;
     this.handleFormInputChange = this.handleFormInputChange.bind(this);
+    this.handleAvatarUpload = this.handleAvatarUpload.bind(this);
   }
 
   /* whenever an input box is changed, update the state value, note we use [name] for all input here  */
@@ -24,16 +26,22 @@ class HCardForm extends Component {
     );
   }
 
+  handleAvatarUpload(avatar) {
+    console.log("000 handleImageUpload called", avatar);
+    this.setState({ avatar }, function() {
+      this.props.onFormFieldChange(this.state);
+    });
+  }
+
   render() {
     const formValue = this.props.formValue;
     return (
       <div className="hCard_form">
         <h1>hCard builder</h1>
-
-        <form action="">
+        <form action="" id="formInput">
           <h4>personal details</h4>
           <div className="hCard_form-input">
-            <label for="">Given Name</label>
+            <label htmlFor="">Given Name</label>
             <input
               type="text"
               name="givenName"
@@ -43,7 +51,7 @@ class HCardForm extends Component {
             />
           </div>
           <div className="hCard_form-input">
-            <label htmlfor="">Surname</label>
+            <label htmlFor="">Surname</label>
             <input
               type="text"
               name="surname"
@@ -53,7 +61,7 @@ class HCardForm extends Component {
             />
           </div>
           <div className="hCard_form-input">
-            <label for="">Email</label>
+            <label htmlFor="">Email</label>
             <input
               type="email"
               name="email"
@@ -63,7 +71,7 @@ class HCardForm extends Component {
             />
           </div>
           <div className="hCard_form-input">
-            <label for="">Phone</label>
+            <label htmlFor="">Phone</label>
             <input
               type="text"
               name="phone"
@@ -75,7 +83,7 @@ class HCardForm extends Component {
 
           <h4>address</h4>
           <div className="hCard_form-input">
-            <label for="">House name or #</label>
+            <label htmlFor="">House name or #</label>
             <input
               type="text"
               name="houseNumber"
@@ -85,7 +93,7 @@ class HCardForm extends Component {
             />
           </div>
           <div className="hCard_form-input">
-            <label for="">Street</label>
+            <label htmlFor="">Street</label>
             <input
               type="text"
               name="street"
@@ -95,7 +103,7 @@ class HCardForm extends Component {
             />
           </div>
           <div className="hCard_form-input">
-            <label for="">Suburb</label>
+            <label htmlFor="">Suburb</label>
             <input
               type="text"
               name="suburb"
@@ -105,7 +113,7 @@ class HCardForm extends Component {
             />
           </div>
           <div className="hCard_form-input">
-            <label for="">State</label>
+            <label htmlFor="">State</label>
             <input
               type="text"
               name="state"
@@ -115,7 +123,7 @@ class HCardForm extends Component {
             />
           </div>
           <div className="hCard_form-input">
-            <label for="">Postcode</label>
+            <label htmlFor="">Postcode</label>
             <input
               type="text"
               name="postcode"
@@ -125,7 +133,7 @@ class HCardForm extends Component {
             />
           </div>
           <div className="hCard_form-input">
-            <label for="">Country</label>
+            <label htmlFor="">Country</label>
             <input
               type="text"
               name="country"
@@ -134,13 +142,17 @@ class HCardForm extends Component {
               onChange={this.handleFormInputChange}
             />
           </div>
-          <input
-            className="button-upload"
-            type="submit"
-            value="Upload Avatar"
-          />
-          <input className="button-create" type="submit" value="Create hCard" />
         </form>
+        <InputFileReader onAvatarUploadedCallback={this.handleAvatarUpload} />{" "}
+        {/* InputFileReader must be outside the form*/}
+        <button
+          type="submit"
+          form="formInput"
+          className="button-create float-left"
+          value="Submit"
+        >
+          Create hCard
+        </button>
       </div>
     );
   }

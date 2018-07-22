@@ -161,8 +161,8 @@ body {
 .hCard_form-input:nth-of-type(even) {
   padding-left: 15px;
 }
-.hCard_form form .button-upload,
-.hCard_form form .button-create {
+.hCard_form .button-upload,
+.hCard_form .button-create {
   border: none;
   border-radius: 5px;
   color: #ffffff;
@@ -172,16 +172,16 @@ body {
   margin-top: 30px;
   width: calc(50% - 15px);
 }
-.hCard_form form .button-upload {
+.hCard_form .button-upload {
   background-color: #758e9d;
   margin-right: 15px;
 }
-.hCard_form form .button-create {
+.hCard_form .button-create {
   background-color: #3fa9e2;
   margin-left: 15px;
 }
-.hCard_form form .button-upload:hover,
-.hCard_form form .button-create:hover {
+.hCard_form .button-upload:hover,
+.hCard_form .button-create:hover {
   -webkit-box-shadow: 0 0 3px #000;
   box-shadow: 0 0 3px #000;
 }

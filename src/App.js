@@ -17,7 +17,8 @@ class App extends Component {
       suburb: "",
       state: "",
       postcode: "",
-      country: ""
+      country: "",
+      avatar: ""
     };
 
     this.handleFormFieldChange = this.handleFormFieldChange.bind(this);
