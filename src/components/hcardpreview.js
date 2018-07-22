@@ -11,33 +11,39 @@ class HCardPreview extends Component {
         </div>
         <div className="hCard_preview_container">
           <div className="hCard_preview__container_top">
-            <h1>Sam Fairfax</h1>
+            <h1>
+              {formValue.givenName} {formValue.surname}
+            </h1>
           </div>
           <div className="hCard_preview__container_bottom">
             <div className="hCard_preview__userdata">
               <h3>Email</h3>
-              <p>sam.fairfax@fairfaxmedia.com.ua</p>
+              <p>{formValue.email}</p>
             </div>
             <div className="hCard_preview__userdata">
               <h3>Phone</h3>
-              <p>{formValue.surname}</p>
+              <p>{formValue.phone}</p>
             </div>
             <div className="hCard_preview__userdata">
               <h3>Address</h3>
-              <p>1 Darling Island Road</p>
+              <p>
+                {formValue.houseNumber} {formValue.street}
+              </p>
             </div>
             <div className="hCard_preview__userdata">
               <h3 />
-              <p>Permont, NSW</p>
+              <p>
+                {formValue.suburb}, {formValue.state}
+              </p>
             </div>
             <div className="hCard_preview__userdata_bottom">
               <div className="hCard_preview__userdata">
                 <h3>Postcode</h3>
-                <p>2009</p>
+                <p>{formValue.postcode}</p>
               </div>
               <div className="hCard_preview__userdata">
                 <h3>Country</h3>
-                <p>Australia</p>
+                <p>{formValue.country}</p>
               </div>
             </div>
           </div>
