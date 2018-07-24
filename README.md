@@ -1,7 +1,7 @@
 
 ## Table of Contents
 
-- [Main Features](#Main Features)
+- [Main Features](#Main-Features)
 - [Run the App](#Run the App)
 
 
