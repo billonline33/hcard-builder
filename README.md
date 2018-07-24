@@ -74,7 +74,7 @@ hcard-builder/
           inputFileReader.js
 
       
-    
+    ![alt text](./screenshots/EmptyScreen.JPG "Landing page")
 
    
     
