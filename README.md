@@ -28,10 +28,31 @@ To run the app from your local computer, going to the project folder
    
 
 
-This application is created using create-react-app.
+      
+      
+   ### Once you open the app, you will see an empty business card entry form.
 
-Below is the Folder Structure
+  ![](screenshots/EmptyScreen2.png "This is landing page")
 
+
+   ### Once you start to type on the left panel, the right preview panel will updatge accordingly.
+   
+   ![](screenshots/DataEntry1.png "This is landing page")
+   
+   
+   ![](screenshots/DataEntry2.png "This is landing page")
+   
+   ### click "Upload Avatar" button, it will update the image on the preview panel.
+   
+   ![](screenshots/DataEntry3.png "This is landing page")
+    
+    
+   
+   On my other posts, I have show many examples using redux as state management. In this example, I will show show to manage states using react only, without redux.
+   
+   
+   
+   This application is created using create-react-app. Below is the Folder Structure
 
 hcard-builder/
 
@@ -73,25 +94,22 @@ hcard-builder/
 
           inputFileReader.js
 
-      
-      
-   Once you open the app, you will see an empty business card entry form.
+    
 
-  ![](screenshots/EmptyScreen2.png "This is landing page")
+![](screenshots/Components.png "Components")
 
 
-   Once you start to type on the left panel, the right preview panel will updatge accordingly.
-   
-   ![](screenshots/DataEntry1.png "This is landing page")
-   
-   
-   ![](screenshots/DataEntry2.png "This is landing page")
-   
-   click "Upload Avatar" button, it will update the image on the preview panel.
-   
-   ![](screenshots/DataEntry3.png "This is landing page")
-    
-    
-   
-      
-    
+On the top level, I have App.js.
+
+In side App.js, I have two components: 
+
+HcardForm and HCardPreview.
+
+The code is like this:
+
+      <div className="hCard">
+        <HCardForm />
+        <HCardPreview />
+      </div>
+
+
