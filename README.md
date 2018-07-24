@@ -75,6 +75,8 @@ hcard-builder/
 
       
   ![](screenshots/EmptyScreen.png)
+  ![](screenshots/EmptyScreen2.png "This is landing page")
+
 
    
     
