@@ -45,9 +45,9 @@ To run the app from your local computer, going to the project folder
 
 ## Main Features
 
-    * As the form is filled out, the preview is automatically updated
-    * When the user selects an image, a thumbnail is shown in the preview
-    * The app is responsive for different screen widths
+* As the form is filled out, the preview is automatically updated
+* When the user selects an image, a thumbnail is shown in the preview
+* The app is responsive for different screen widths
       
    Once you open the app, you will see an empty business card entry form.
 
@@ -67,7 +67,9 @@ To run the app from your local computer, going to the project folder
     
     
    
-   On my other posts, I have show many examples using redux as state management. In this example, I will show show to manage states using react only, without redux.
+   On my other posts, I have show many examples using redux as state management. In this example, I will show you how to manage states using react only, without redux.
+   
+   For a sample applciation which use redux, please visit [Employee List Dmeo Using React + Redux ](https://github.com/billonline33/employee-list-react)
    
 ## Application Folder Structure
    
