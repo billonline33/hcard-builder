@@ -101,7 +101,7 @@ hcard-builder/
 
 On the top level, I have App.js.
 
-In side App.js, I have two components: 
+Inside App.js, I have two components: 
 
 HcardForm and HCardPreview.
 
@@ -113,3 +113,111 @@ The code is like this:
       </div>
 
 
+Whenever a value changes in HCardForm component, it need to pass the state to HCardPreview component, and update HcardPreview component accordingly.
+
+We know that we can pass state to component as props, we also know that state can only be passed from parent to child.
+
+So the challenge is, how to pass state between two siblings. 
+
+To achieve that, we need to:
+
+1. Pass states from HcardForm to the parent component, which is App component.
+
+    I define state in App component first
+    
+      constructor(props) {
+        super(props);
+        this.state = {
+          givenName: "",
+          surname: "",
+          email: "",
+          phone: "",
+          houseNumber: "",
+          street: "",
+          suburb: "",
+          state: "",
+          postcode: "",
+          country: "",
+          avatar: ""
+        };
+      }
+
+     I then pass the state to HCardForm compoent as props
+     
+        <HCardForm
+          formValue={this.state}
+        />
+        
+     whenever an input field value is changes, we need to chang state in App component. in Order to do that, we use callback function.
+        
+        // callback
+        handleFormFieldChange(formValue) {
+            this.setState(formValue);
+        }
+     
+       <HCardForm
+          formValue={this.state}
+          onFormFieldChange={this.handleFormFieldChange}
+        />
+        
+        when there is a change in HCardForm, it calls this.props.onFormFieldChange props, and pass the updated value back to the parent (App component).
+        
+        Below is the code on how to impment this in HCardForm component:
+        
+            whenever there is a change on input, we call onChange={this.handleFormInputChange
+            
+            <input
+              type="text"
+              name="givenName"
+              value={formValue.givenName}
+              placeholder="Given Name"
+              onChange={this.handleFormInputChange}
+            />
+
+          
+           I then handle the event: 
+          
+            handleFormInputChange(event) {
+                const target = event.target;
+                const value = target.value;
+                const name = target.name;
+
+                this.setState(
+                  {
+                    [name]: value
+                  },
+                  /* use callback function, only call this funciton after setState is completed */
+                  function() {
+                    this.props.onFormFieldChange(this.state);
+                  }
+                );
+             }
+             
+             note the code 
+             
+               this.setState(
+                  {
+                    [name]: value
+                  },
+                  /* use callback function, only call this funciton after setState is completed */
+                  function() {
+                    this.props.onFormFieldChange(this.state);
+                  }
+                );
+                
+                It will not work if you change the code to 
+                
+                 this.setState(
+                  {
+                    [name]: value
+                  });
+             
+                 this.props.onFormFieldChange(this.state);
+                 
+                 Why? ...
+
+2. Pass state from App componet to HCardPreview component
+
+        in App.js, pass this.state as props
+        
+        <HCardPreview formValue={this.state} />
