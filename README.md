@@ -1,19 +1,25 @@
 
-hCard Builder
+## Table of Contents
+
+- [Main Features](#Main Features)
+- [Run the App](#Run the App)
+
+
+
+## Introudction
+
+### hCard Builder
 
 [hCard is a simple, open format for publishing people, companies and
 organizations on the web](http://microformats.org/wiki/hCard).
 
 This applciation is built in react. 
 
-### Main features
 
-* As the form is filled out, the preview is automatically updated
-* When the user selects an image, a thumbnail is shown in the preview
-* The app is responsive for different screen widths
+
+### Run the App
 
 You can run the app from https://react-hcard-builder.herokuapp.com/ 
-
 
 To run the app from your local computer, going to the project folder
     
@@ -28,7 +34,11 @@ To run the app from your local computer, going to the project folder
    
 
 
-      
+## Main Features
+
+    * As the form is filled out, the preview is automatically updated
+    * When the user selects an image, a thumbnail is shown in the preview
+    * The app is responsive for different screen widths
       
    ### Once you open the app, you will see an empty business card entry form.
 
