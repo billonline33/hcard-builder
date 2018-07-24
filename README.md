@@ -5,9 +5,13 @@
   * [hCard Builder](#hcard-builder)
   * [Run the App](#run-the-app)
 - [Main Features](#main-features)
-  * [Once you open the app, you will see an empty business card entry form.](#once-you-open-the-app--you-will-see-an-empty-business-card-entry-form)
-  * [Once you start to type on the left panel, the right preview panel will updatge accordingly.](#once-you-start-to-type-on-the-left-panel--the-right-preview-panel-will-updatge-accordingly)
-  * [click "Upload Avatar" button, it will update the image on the preview panel.](#click--upload-avatar--button--it-will-update-the-image-on-the-preview-panel)
+- [Application Folder Structure](#application-folder-structure)
+- [Components Structure](#components-structure)
+- [Development Consideration](#development-consideration)
+  * [1. Pass states from HcardForm to the parent component, which is App component.](#1-pass-states-from-hcardform-to-the-parent-component--which-is-app-component)
+  * [2. Pass state from App componet to HCardPreview component](#2-pass-state-from-app-componet-to-hcardpreview-component)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
 
