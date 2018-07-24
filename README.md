@@ -1,19 +1,34 @@
 
-hCard Builder
+## Table of Contents
+
+- [Introduction](#introduction)
+  * [hCard Builder](#hcard-builder)
+  * [Run the App](#run-the-app)
+- [Main Features](#main-features)
+- [Application Folder Structure](#application-folder-structure)
+- [Components Structure](#components-structure)
+- [Development Consideration](#development-consideration)
+  * [1. Pass states from HcardForm to the parent component, which is App component.](#1-pass-states-from-hcardform-to-the-parent-component--which-is-app-component)
+  * [2. Pass state from App componet to HCardPreview component](#2-pass-state-from-app-componet-to-hcardpreview-component)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+
+## Introduction
+
+### hCard Builder
 
 [hCard is a simple, open format for publishing people, companies and
 organizations on the web](http://microformats.org/wiki/hCard).
 
-This applciation is built in react. 
+This application is built in react. 
 
-### Main features
 
-* As the form is filled out, the preview is automatically updated
-* When the user selects an image, a thumbnail is shown in the preview
-* The app is responsive for different screen widths
+
+### Run the App
 
 You can run the app from https://react-hcard-builder.herokuapp.com/ 
-
 
 To run the app from your local computer, going to the project folder
     
@@ -28,10 +43,37 @@ To run the app from your local computer, going to the project folder
    
 
 
-This application is created using create-react-app.
+## Main Features
 
-Below is the Folder Structure
+* As the form is filled out, the preview is automatically updated
+* When the user selects an image, a thumbnail is shown in the preview
+* The app is responsive for different screen widths
+      
+   Once you open the app, you will see an empty business card entry form.
 
+  ![](screenshots/EmptyScreen2.png "This is landing page")
+
+
+   Once you start to type on the left panel, the right preview panel will update accordingly.
+   
+   ![](screenshots/DataEntry1.png "This is landing page")
+   
+   
+   ![](screenshots/DataEntry2.png "This is landing page")
+   
+  Click "Upload Avatar" button, it will update the image on the preview panel.
+   
+   ![](screenshots/DataEntry3.png "This is landing page")
+    
+    
+   
+   On my other posts, I have show many examples using redux as state management. In this example, I will show you how to manage states using react only, without redux.
+   
+   For a sample application which use redux, please visit [Employee List Dmeo Using React + Redux ](https://github.com/billonline33/employee-list-react)
+   
+## Application Folder Structure
+   
+   This application is created using create-react-app. Below is the Folder Structure
 
 hcard-builder/
 
@@ -73,10 +115,135 @@ hcard-builder/
 
           inputFileReader.js
 
-      
     
+## Components Structure
 
-   
+![](screenshots/Components.png "Components")
+
+
+On the top level, I have App.js.
+
+Inside App.js, I have two components: 
+
+HcardForm and HCardPreview.
+
+The code is like this:
+
+      <div className="hCard">
+        <HCardForm />
+        <HCardPreview />
+      </div>
+
+
+## Development Consideration
+
+Whenever a value changes in HCardForm component, it need to pass the state to HCardPreview component, and update HcardPreview component accordingly.
+
+We know that we can pass state to component as props, we also know that state can only be passed from parent to child.
+
+So the challenge is, how to pass state between two siblings. 
+
+To achieve that, we need to:
+
+### 1. Pass states from HcardForm to the parent component, which is App component.
+
+I define state in App component first
     
-      
-    
+      constructor(props) {
+        super(props);
+        this.state = {
+          givenName: "",
+          surname: "",
+          email: "",
+          phone: "",
+          houseNumber: "",
+          street: "",
+          suburb: "",
+          state: "",
+          postcode: "",
+          country: "",
+          avatar: ""
+        };
+      }
+
+I then pass the state to HCardForm component as props
+     
+        <HCardForm
+          formValue={this.state}
+        />
+        
+Whenever an input field value is changes, we need to chang state in App component. In Order to do that, we use callback function.
+        
+        // callback
+        handleFormFieldChange(formValue) {
+            this.setState(formValue);
+        }
+     
+       <HCardForm
+          formValue={this.state}
+          onFormFieldChange={this.handleFormFieldChange}
+        />
+        
+        
+When there is a change in HCardForm, it calls this.props.onFormFieldChange props, and pass the updated value back to the parent (App component).
+        
+        
+Below is the code on how to impment this in HCardForm component:
+        
+whenever there is a change on input, we call onChange={this.handleFormInputChange
+            
+            <input
+              type="text"
+              name="givenName"
+              value={formValue.givenName}
+              placeholder="Given Name"
+              onChange={this.handleFormInputChange}
+            />
+
+          
+I then handle the event: 
+          
+            handleFormInputChange(event) {
+                const target = event.target;
+                const value = target.value;
+                const name = target.name;
+
+                this.setState(
+                  {
+                    [name]: value
+                  },
+                  /* use callback function, only call this funciton after setState is completed */
+                  function() {
+                    this.props.onFormFieldChange(this.state);
+                  }
+                );
+             }
+             
+Note the code 
+             
+               this.setState(
+                  {
+                    [name]: value
+                  },
+                  /* use callback function, only call this funciton after setState is completed */
+                  function() {
+                    this.props.onFormFieldChange(this.state);
+                  }
+                );
+                
+It will not work if you change the code to 
+                
+                 this.setState(
+                  {
+                    [name]: value
+                  });
+             
+                 this.props.onFormFieldChange(this.state);
+                 
+Why? ...
+
+### 2. Pass state from App componet to HCardPreview component
+
+in App.js, pass this.state as props
+        
+        <HCardPreview formValue={this.state} />
