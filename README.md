@@ -45,19 +45,19 @@ To run the app from your local computer, going to the project folder
     * When the user selects an image, a thumbnail is shown in the preview
     * The app is responsive for different screen widths
       
-   ### Once you open the app, you will see an empty business card entry form.
+   Once you open the app, you will see an empty business card entry form.
 
   ![](screenshots/EmptyScreen2.png "This is landing page")
 
 
-   ### Once you start to type on the left panel, the right preview panel will updatge accordingly.
+   Once you start to type on the left panel, the right preview panel will updatge accordingly.
    
    ![](screenshots/DataEntry1.png "This is landing page")
    
    
    ![](screenshots/DataEntry2.png "This is landing page")
    
-   ### click "Upload Avatar" button, it will update the image on the preview panel.
+   click "Upload Avatar" button, it will update the image on the preview panel.
    
    ![](screenshots/DataEntry3.png "This is landing page")
     
@@ -65,7 +65,7 @@ To run the app from your local computer, going to the project folder
    
    On my other posts, I have show many examples using redux as state management. In this example, I will show show to manage states using react only, without redux.
    
-   
+## Application Folder Structure
    
    This application is created using create-react-app. Below is the Folder Structure
 
@@ -110,6 +110,7 @@ hcard-builder/
           inputFileReader.js
 
     
+## Components Structure
 
 ![](screenshots/Components.png "Components")
 
@@ -128,6 +129,8 @@ The code is like this:
       </div>
 
 
+## Development Consideration
+
 Whenever a value changes in HCardForm component, it need to pass the state to HCardPreview component, and update HcardPreview component accordingly.
 
 We know that we can pass state to component as props, we also know that state can only be passed from parent to child.
@@ -136,9 +139,9 @@ So the challenge is, how to pass state between two siblings.
 
 To achieve that, we need to:
 
-1. Pass states from HcardForm to the parent component, which is App component.
+### 1. Pass states from HcardForm to the parent component, which is App component.
 
-    I define state in App component first
+I define state in App component first
     
       constructor(props) {
         super(props);
@@ -157,13 +160,13 @@ To achieve that, we need to:
         };
       }
 
-     I then pass the state to HCardForm compoent as props
+I then pass the state to HCardForm compoent as props
      
         <HCardForm
           formValue={this.state}
         />
         
-     whenever an input field value is changes, we need to chang state in App component. in Order to do that, we use callback function.
+Whenever an input field value is changes, we need to chang state in App component. in Order to do that, we use callback function.
         
         // callback
         handleFormFieldChange(formValue) {
@@ -175,7 +178,9 @@ To achieve that, we need to:
           onFormFieldChange={this.handleFormFieldChange}
         />
         
-        when there is a change in HCardForm, it calls this.props.onFormFieldChange props, and pass the updated value back to the parent (App component).
+        
+When there is a change in HCardForm, it calls this.props.onFormFieldChange props, and pass the updated value back to the parent (App component).
+        
         
         Below is the code on how to impment this in HCardForm component:
         
@@ -231,7 +236,7 @@ To achieve that, we need to:
                  
                  Why? ...
 
-2. Pass state from App componet to HCardPreview component
+### 2. Pass state from App componet to HCardPreview component
 
         in App.js, pass this.state as props
         
