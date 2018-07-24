@@ -74,7 +74,7 @@ hcard-builder/
           inputFileReader.js
 
       
-    ![](screenshots/EmptyScreen.png "Landing page")
+  ![](screenshots/EmptyScreen.png)
 
    
     
