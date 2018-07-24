@@ -1,8 +1,13 @@
 
 ## Table of Contents
 
-- [Main Features](#Main-Features)
-- [Run the App](#Run the App)
+- [Introudction](#introudction)
+  * [hCard Builder](#hcard-builder)
+  * [Run the App](#run-the-app)
+- [Main Features](#main-features)
+  * [Once you open the app, you will see an empty business card entry form.](#once-you-open-the-app--you-will-see-an-empty-business-card-entry-form)
+  * [Once you start to type on the left panel, the right preview panel will updatge accordingly.](#once-you-start-to-type-on-the-left-panel--the-right-preview-panel-will-updatge-accordingly)
+  * [click "Upload Avatar" button, it will update the image on the preview panel.](#click--upload-avatar--button--it-will-update-the-image-on-the-preview-panel)
 
 
 
