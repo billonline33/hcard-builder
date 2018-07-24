@@ -188,9 +188,9 @@ Whenever an input field value is changes, we need to chang state in App componen
 When there is a change in HCardForm, it calls this.props.onFormFieldChange props, and pass the updated value back to the parent (App component).
         
         
-        Below is the code on how to impment this in HCardForm component:
+Below is the code on how to impment this in HCardForm component:
         
-            whenever there is a change on input, we call onChange={this.handleFormInputChange
+whenever there is a change on input, we call onChange={this.handleFormInputChange
             
             <input
               type="text"
@@ -201,7 +201,7 @@ When there is a change in HCardForm, it calls this.props.onFormFieldChange props
             />
 
           
-           I then handle the event: 
+I then handle the event: 
           
             handleFormInputChange(event) {
                 const target = event.target;
@@ -219,7 +219,7 @@ When there is a change in HCardForm, it calls this.props.onFormFieldChange props
                 );
              }
              
-             note the code 
+Note the code 
              
                this.setState(
                   {
@@ -231,7 +231,7 @@ When there is a change in HCardForm, it calls this.props.onFormFieldChange props
                   }
                 );
                 
-                It will not work if you change the code to 
+It will not work if you change the code to 
                 
                  this.setState(
                   {
@@ -240,10 +240,10 @@ When there is a change in HCardForm, it calls this.props.onFormFieldChange props
              
                  this.props.onFormFieldChange(this.state);
                  
-                 Why? ...
+Why? ...
 
 ### 2. Pass state from App componet to HCardPreview component
 
-        in App.js, pass this.state as props
+in App.js, pass this.state as props
         
         <HCardPreview formValue={this.state} />
