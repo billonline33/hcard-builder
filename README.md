@@ -1,7 +1,7 @@
 
 ## Table of Contents
 
-- [Introudction](#introudction)
+- [Introduction](#introduction)
   * [hCard Builder](#hcard-builder)
   * [Run the App](#run-the-app)
 - [Main Features](#main-features)
@@ -15,14 +15,14 @@
 
 
 
-## Introudction
+## Introduction
 
 ### hCard Builder
 
 [hCard is a simple, open format for publishing people, companies and
 organizations on the web](http://microformats.org/wiki/hCard).
 
-This applciation is built in react. 
+This application is built in react. 
 
 
 
@@ -54,14 +54,14 @@ To run the app from your local computer, going to the project folder
   ![](screenshots/EmptyScreen2.png "This is landing page")
 
 
-   Once you start to type on the left panel, the right preview panel will updatge accordingly.
+   Once you start to type on the left panel, the right preview panel will update accordingly.
    
    ![](screenshots/DataEntry1.png "This is landing page")
    
    
    ![](screenshots/DataEntry2.png "This is landing page")
    
-   click "Upload Avatar" button, it will update the image on the preview panel.
+  Click "Upload Avatar" button, it will update the image on the preview panel.
    
    ![](screenshots/DataEntry3.png "This is landing page")
     
@@ -69,7 +69,7 @@ To run the app from your local computer, going to the project folder
    
    On my other posts, I have show many examples using redux as state management. In this example, I will show you how to manage states using react only, without redux.
    
-   For a sample applciation which use redux, please visit [Employee List Dmeo Using React + Redux ](https://github.com/billonline33/employee-list-react)
+   For a sample application which use redux, please visit [Employee List Dmeo Using React + Redux ](https://github.com/billonline33/employee-list-react)
    
 ## Application Folder Structure
    
@@ -166,13 +166,13 @@ I define state in App component first
         };
       }
 
-I then pass the state to HCardForm compoent as props
+I then pass the state to HCardForm component as props
      
         <HCardForm
           formValue={this.state}
         />
         
-Whenever an input field value is changes, we need to chang state in App component. in Order to do that, we use callback function.
+Whenever an input field value is changes, we need to chang state in App component. In Order to do that, we use callback function.
         
         // callback
         handleFormFieldChange(formValue) {
