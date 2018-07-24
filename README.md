@@ -74,11 +74,24 @@ hcard-builder/
           inputFileReader.js
 
       
-  ![](screenshots/EmptyScreen.png)
+      
+   Once you open the app, you will see an empty business card entry form.
+
   ![](screenshots/EmptyScreen2.png "This is landing page")
 
 
+   Once you start to type on the left panel, the right preview panel will updatge accordingly.
    
+   ![](screenshots/DataEntry1.png "This is landing page")
+   
+   
+   ![](screenshots/DataEntry2.png "This is landing page")
+   
+   click "Upload Avatar" button, it will update the image on the preview panel.
+   
+   ![](screenshots/DataEntry3.png "This is landing page")
     
+    
+   
       
     
