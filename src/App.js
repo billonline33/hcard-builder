@@ -25,8 +25,14 @@ class App extends Component {
   }
 
   // callback
-  handleFormFieldChange(formValue) {
-    this.setState(formValue);
+  // handleFormFieldChange(formValue) {
+  //   this.setState(formValue);
+  // }
+
+  handleFormFieldChange(event) {
+    console.log("event=", event);
+    this.setState({
+      [event.target.name]:event.target.value});
   }
 
   render() {
